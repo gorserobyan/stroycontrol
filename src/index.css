@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * СтройКонтроль design tokens.
+ * Neutral warm-grey canvas, white surfaces, charcoal text, restrained amber
+ * accent. Primary actions are charcoal; amber is reserved for brand/emphasis.
+ */
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(0.985 0.002 75);
+  --foreground: oklch(0.21 0.006 265);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.006 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.006 265);
+
+  --primary: oklch(0.24 0.008 265);
+  --primary-foreground: oklch(0.985 0.002 75);
+
+  --secondary: oklch(0.965 0.003 75);
+  --secondary-foreground: oklch(0.24 0.008 265);
+
+  --muted: oklch(0.965 0.003 75);
+  --muted-foreground: oklch(0.52 0.012 265);
+
+  --accent: oklch(0.955 0.004 75);
+  --accent-foreground: oklch(0.21 0.006 265);
+
+  --destructive: oklch(0.577 0.215 27.3);
+
+  --border: oklch(0.915 0.004 75);
+  --input: oklch(0.89 0.005 75);
+  --ring: oklch(0.72 0.15 62);
+
+  /* Brand amber */
+  --brand: oklch(0.74 0.16 62);
+  --brand-strong: oklch(0.64 0.16 55);
+  --brand-soft: oklch(0.97 0.035 80);
+  --brand-foreground: oklch(0.26 0.06 50);
+
+  --sidebar: oklch(0.975 0.003 75);
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-sidebar: var(--sidebar);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv11", "ss01";
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

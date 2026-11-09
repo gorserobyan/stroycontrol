@@ -1,0 +1,6 @@
+-- Demo data is NOT seeded from SQL on purpose.
+--
+-- Demo accounts need passwords, and the demo workflow should be produced by the
+-- real, trusted code path (transition_task_status). Both are handled by
+--   DEMO_PASSWORD='...' npm run seed:local
+-- See README.md → «Демо-данные».
